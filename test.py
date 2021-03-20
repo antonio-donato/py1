@@ -38,3 +38,18 @@ print("====================")
 file_open.close()
 
 print(testo.find("questa"))
+
+#liste
+lista1 = ["uno", "due", "tre", "quattro", "cinque"]
+
+print("==== LIST ==========")
+fruits = ["apple", "banana", "cherry", "orange", "kiwi", "melon", "mango"]
+print(fruits[2:5])
+print("====================")
+
+if "due" in lista1:
+   print(lista1)
+
+#List Comprehension
+lista2 = ["Luca", "Anna","Elisabetta","Andrea", "Alessio"]
+[print(x) for x in lista2 if x.__contains__("An")]
