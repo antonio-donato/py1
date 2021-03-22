@@ -1,3 +1,5 @@
+import webbrowser
+
 # open the file in read mode
 file_csv = open("C:\\Users\\Antonio\\Downloads\\contacts1.csv", "r")
 
@@ -53,3 +55,7 @@ if "due" in lista1:
 #List Comprehension
 lista2 = ["Luca", "Anna","Elisabetta","Andrea", "Alessio"]
 [print(x) for x in lista2 if x.__contains__("An")]
+
+#import webbrowser
+#place = input()
+webbrowser.open("https://www.google.com/maps/place/{}".format(input()))
