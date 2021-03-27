@@ -1,61 +1,26 @@
-import webbrowser
+import asta
+from unittest.mock import patch
+import unittest
 
-# open the file in read mode
-file_csv = open("C:\\Users\\Antonio\\Downloads\\contacts1.csv", "r")
 
-#open the file in write mode (create and overwrite)
-file_new_nome_file = "C:\\Users\\Antonio\\Downloads\\test_py.csv"
-file_new = open(file_new_nome_file, "w")
+class TestAll(unittest.TestCase):
+    def test_mail1(self):
+        self.assertFalse(asta.email_check("doannt"))
 
-#split the red record into the element of the list for each comma divider
-contenuto = file_csv.read().split(",")
+    def test_mail2(self):
+        self.assertFalse(asta.email_check("donant.it"))
 
-print("--------------------")
-new_contenuto = []
-for x in contenuto:
-   # save in the list only the element != space
-   if x:
-      new_contenuto.append(x)
-      print(x)
-file_new.writelines(["%s\n" % item for item in new_contenuto])
+    def test_mail3(self):
+        self.assertFalse(asta.email_check("donant@donant"))
 
-#print(testo.format(uno, due))
+    def test_mail4(self):
+        self.assertTrue(asta.email_check("donant@donant.it"))
 
-print("--------------------")
+    def test_duplicati_email_in_lista(self):
+        #avoid the same email in the list
 
-#Use format
-uno = 1
-due = "due"
-testo = "questa una riga con dei parametri di test {0} {1}"
-file_new.writelines(testo.format(uno, due))
 
-file_csv.close()
-file_new.close()
 
-#Read file
-file_open = open(file_new_nome_file, "r")
-print("====================")
-print(file_open.readline())
-print("====================")
-file_open.close()
 
-print(testo.find("questa"))
-
-#liste
-lista1 = ["uno", "due", "tre", "quattro", "cinque"]
-
-print("==== LIST ==========")
-fruits = ["apple", "banana", "cherry", "orange", "kiwi", "melon", "mango"]
-print(fruits[2:5])
-print("====================")
-
-if "due" in lista1:
-   print(lista1)
-
-#List Comprehension
-lista2 = ["Luca", "Anna","Elisabetta","Andrea", "Alessio"]
-[print(x) for x in lista2 if x.__contains__("An")]
-
-#import webbrowser
-#place = input()
-webbrowser.open("https://www.google.com/maps/place/{}".format(input()))
+if __name__ == '__main__':
+    unittest.main()
