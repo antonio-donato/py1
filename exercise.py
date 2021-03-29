@@ -53,7 +53,7 @@ if "due" in lista1:
    print(lista1)
 
 #List Comprehension
-lista2 = ["Luca", "Anna","Elisabetta","Andrea", "Alessio"]
+lista2 = ["Luca", "Maria", "Anna", "Andrea", "Giuditta"]
 [print(x) for x in lista2 if x.__contains__("An")]
 
 #import webbrowser
