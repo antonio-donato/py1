@@ -10,6 +10,7 @@ def stampa_lista(lista_offerte):
 def get_input(text):
     return input(text)
 
+
 def offerta_check(offerta):
     try:
         offerta = float(offerta)
@@ -57,6 +58,7 @@ def lista_offerte():
                 continue
             email_errata = False
 
+    #se la mail non è già presente in lista aggiungo la coppia in lista
         if not search_email_in_list(lista, email):
             lista.append(([email, offerta]))
 
