@@ -16,10 +16,9 @@ class TestAll(unittest.TestCase):
     def test_mail4(self):
         self.assertTrue(asta.email_check("donant@donant.it"))
 
+    # avoid the same email in the list
     def test_duplicati_email_in_lista(self):
-        #avoid the same email in the list
-
-
+        self.assertTrue(asta.search_email_in_list([["donant@gmail.com", 10], ["donant@outlook.com", 20]], "donant@gmail.com"))
 
 
 if __name__ == '__main__':
