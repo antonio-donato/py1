@@ -1,10 +1,9 @@
-import webbrowser
 
 # open the file in read mode
-file_csv = open("C:\\Users\\Antonio\\Downloads\\contacts1.csv", "r")
+file_csv = open("contacts1.csv", "r")
 
 #open the file in write mode (create and overwrite)
-file_new_nome_file = "C:\\Users\\Antonio\\Downloads\\test_py.csv"
+file_new_nome_file = "C:\\Users\\antonio.donato\\Downloads\\OUTPUT.csv"
 file_new = open(file_new_nome_file, "w")
 
 #split the red record into the element of the list for each comma divider
@@ -56,6 +55,3 @@ if "due" in lista1:
 lista2 = ["Luca", "Maria", "Anna", "Andrea", "Giuditta"]
 [print(x) for x in lista2 if x.__contains__("An")]
 
-#import webbrowser
-#place = input()
-webbrowser.open("https://www.google.com/maps/place/{}".format(input()))
