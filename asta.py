@@ -15,7 +15,6 @@ def offerta_check(offerta):
     try:
         offerta = float(offerta)
     except:
-        print("Formato non valido")
         return False
     return True
 
@@ -30,7 +29,6 @@ def search_email_in_list(lista, email):
     sublistFound = False
     for sublist in lista:
         if sublist[0] == email:
-            print("Questo utente ha già una sua unica offerta... respinto!")
             sublistFound = True
             break
     return sublistFound
@@ -44,6 +42,7 @@ def lista_offerte():
         offerta = get_input("Inserisci l'offerta pervenuta (0 per terminare): ")
 
         if not offerta_check(offerta):
+            print("Formato non valido")
             continue
         offerta = float(offerta)
         if not offerta:
@@ -58,8 +57,53 @@ def lista_offerte():
                 continue
             email_errata = False
 
-    #se la mail non è già presente in lista aggiungo la coppia in lista
+        # se la mail non è già presente in lista aggiungo la coppia in lista
         if not search_email_in_list(lista, email):
             lista.append(([email, offerta]))
+        else:
+            print("Questo utente ha già una sua unica offerta... respinto!")
 
-    print(lista)
+    return lista
+
+
+def mediaOfferte(lista):
+    somma = 0.0
+    for offerta in lista:
+        somma += offerta[1]
+    return somma / len(lista)
+
+
+def minimo(lista):
+    min = lista[0]
+    for offerta in lista[1:]:
+        if offerta[1] < min[1]:
+            min = offerta
+
+    return min
+
+
+def massimo(lista):
+    max = lista[0]
+    for offerta in lista[1:]:
+        if offerta[1] > max[1]:
+            max = offerta
+
+    return max
+
+
+def simula_inserimento_offerte():
+    return [("donant@gmail.com", 100), ("lucapicci@gmail.com", 30), ("marifu@gmail.com", 60),
+            ("donant@outlook.com", 50)]
+
+# Mia versione iniziale
+# def minimo(lista):
+#
+#     new_lista = []
+#     for offerta in lista:
+#         new_lista.append(offerta[1])
+#     return min(new_lista)
+# def massimo(lista):
+#     new_lista = []
+#     for offerta in lista:
+#         new_lista.append(offerta[1])
+#     return max(new_lista)
