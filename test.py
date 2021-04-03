@@ -19,7 +19,28 @@ class TestAll(unittest.TestCase):
 
     # avoid the same email in the list
     def test_duplicati_email_in_lista(self):
-        self.assertTrue(asta.search_email_in_list([["donant@gmail.com", 10], ["donant@outlook.com", 20]], "donant@gmail.com"))
+        self.assertTrue(
+            asta.search_email_in_list([["donant@gmail.com", 10], ["donant@outlook.com", 20]], "donant@gmail.com"))
+
+    def test_media_offerte(self):
+        lista = [("donant@gmail.com", 10), ("lucapicci@gmail.com", 30), ("marifu@gmail.com", 30),
+                 ("donant@outlook.com", 50)]
+        self.assertEqual(asta.mediaOfferte(lista), 30)
+
+    def test_min(self):
+        lista = [("donant@gmail.com", 100), ("lucapicci@gmail.com", 30), ("marifu@gmail.com", 60),
+                 ("donant@outlook.com", 50)]
+        minimo = asta.minimo(lista)
+        self.assertEqual(minimo[1], 30)
+
+    def test_max(self):
+        lista = [("donant@gmail.com", 100), ("lucapicci@gmail.com", 30), ("marifu@gmail.com", 60),
+                 ("donant@outlook.com", 50)]
+        massimo = asta.massimo(lista)
+        self.assertEqual(massimo[1], 100)
+
+
+class TestArrotondamento(unittest.TestCase):
 
     def test_arrotonda1(self):
         self.assertTrue((rounding_ITA.rounding(10.37) == 10.35))
@@ -29,6 +50,7 @@ class TestAll(unittest.TestCase):
 
     def test_arrotonda3(self):
         self.assertTrue((rounding_ITA.rounding(10.39) == 10.4))
+
 
 if __name__ == '__main__':
     unittest.main()
